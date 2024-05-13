@@ -1,25 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import globalStyles from './globalStyles'; // adjust the path as needed
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import BottomTabNavigation from './navigation/BottomTabNavigation';
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle}>Start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer  >
+   <Stack.Navigator screenOptions={{headerShown:false}}>
+    <Stack.Screen
+     name='Bottom Navigation'
+     component={BottomTabNavigation}
+     
+     />
+     <Stack.Screen
+     name='Cart'
+     component={Cart}
+     
+     />
+   </Stack.Navigator>
+   </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textStyle: {
-    fontFamily: 'Poppins-regular', // Ensure you use the correct internal name of the font
-    fontSize: 16,
-  }
-});
+

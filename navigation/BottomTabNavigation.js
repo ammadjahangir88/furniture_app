@@ -3,6 +3,9 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { COLORS } from '../assets/constants/index';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home, Search, Profile } from '../screens';
 const BottomTabNavigation = () => {
   const screenOptions={
     tabBarShowLabel: false,
@@ -20,16 +23,34 @@ const BottomTabNavigation = () => {
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator screenOptions={screenOptions}>
-    <Tab.Screen name="Home" component={Home}  options={{
-        tabBarIcon: ({focused})=>(
-            return <Ionicons name={focused ? 'Home': 'home-outline'} size={24} 
-            color={focused ? COLORS.primary : COLORS.gray2}
-            color={focused ? COLORS.primary : COLORS.gray2}
-        )
-        />
-    }}/>
-    <Tab.Screen name="Search" component={Search}/>
-    <Tab.Screen name="Profile" component={Profile}/>
+   <Tab.Screen name="Home" component={Home} options={{
+        tabBarIcon: ({ focused }) => (
+          <Ionicons 
+            name={focused ? 'home' : 'home-outline'} 
+            size={24} 
+            color={focused ? COLORS.primary : COLORS.gray2} 
+          />
+        ),
+      }} />
+      <Tab.Screen name="Profile" component={Profile} options={{
+        tabBarIcon: ({ focused }) => (
+          <Ionicons 
+            name={'search-sharp'} 
+            size={24} 
+            color={focused ? COLORS.primary : COLORS.gray2} 
+          />
+        ),
+      }} />
+      <Tab.Screen name="Search" component={Search} options={{
+        tabBarIcon: ({ focused }) => (
+          <Ionicons 
+            name={focused ? 'person' : 'person-outline'} 
+            size={24} 
+            color={focused ? COLORS.primary : COLORS.gray2} 
+          />
+        ),
+      }} />
+   
   </Tab.Navigator>
   )
 }
