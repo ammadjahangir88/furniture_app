@@ -32,7 +32,8 @@ const BottomTabNavigation = () => {
           />
         ),
       }} />
-      <Tab.Screen name="Profile" component={Profile} options={{
+         <Tab.Screen name="Search" component={Search} options={{
+    
         tabBarIcon: ({ focused }) => (
           <Ionicons 
             name={'search-sharp'} 
@@ -41,7 +42,7 @@ const BottomTabNavigation = () => {
           />
         ),
       }} />
-      <Tab.Screen name="Search" component={Search} options={{
+     <Tab.Screen name="Profile" component={Profile} options={{
         tabBarIcon: ({ focused }) => (
           <Ionicons 
             name={focused ? 'person' : 'person-outline'} 
