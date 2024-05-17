@@ -4,21 +4,21 @@ import { COLORS, SIZES } from '../../assets/constants'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
 
-const ProductCardView = () => {
+const ProductCardView = ({item}) => {
     const navigation= useNavigation()
   return (
-   <TouchableOpacity onPress={()=>{navigation.navigate('ProductDetails')}}>
+   <TouchableOpacity onPress={()=>{navigation.navigate('ProductDetails',{item})}}>
         <View style={styles.container}>
             <View style={styles.imageContainer}>
               <Image  
-              source={{uri: "https://source.unsplash.com/1024x768/?nature"}}
+              source={{uri: item.imageUrl}}
               style={styles.image}
               />
             </View>
             <View style={styles.details}>
-                <Text style={styles.title} numberOfLines={1}>Products</Text>
-                <Text style={styles.supplier}>Products</Text>
-                <Text style={styles.title}>$23443</Text>
+                <Text style={styles.title} numberOfLines={1}>{item.title}</Text>
+                <Text style={styles.supplier}>{item.supplier}</Text>
+                <Text style={styles.title}>{item.price}</Text>
 
             </View>
             <TouchableOpacity style={styles.addBtn}>

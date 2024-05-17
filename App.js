@@ -4,7 +4,7 @@ import globalStyles from './globalStyles'; // adjust the path as needed
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomTabNavigation from './navigation/BottomTabNavigation';
-import { Cart,ProductDetails } from './screens';
+import { Cart,ProductDetails,NewRivals } from './screens';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -24,6 +24,11 @@ export default function App() {
      <Stack.Screen 
      name='ProductDetails'
      component={ProductDetails}
+     />
+
+       <Stack.Screen 
+     name='ProductList'
+     component={NewRivals}
      />
    </Stack.Navigator>
    </NavigationContainer>
